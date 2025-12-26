@@ -16,24 +16,23 @@
   <script src="nicepage.js" defer></script>
 
   <!-- VALIDACIÓN -->
-<script>
-  function verificarClave() {
-    var palabraCorrecta = "aventura";
-    var ingreso = document.getElementById("name-ef64").value
-      .trim()
-      .toLowerCase();
+  <script>
+    function verificarClave() {
+      var palabraCorrecta = "aventura";
+      var ingreso = document.getElementById("name-ef64").value
+        .trim()
+        .toLowerCase();
 
-    var error = document.getElementById("error");
+      var error = document.getElementById("error");
 
-    if (ingreso === palabraCorrecta) {
-      window.location.href = "Mensaje.html";
-    } else {
-      error.innerHTML = "Esa no es la palabra correcta… intenta de nuevo😒";
-      error.style.color = "#b30000";
+      if (ingreso === palabraCorrecta) {
+        window.location.href = "mensaje.html";
+      } else {
+        error.innerHTML = "Esa no es la palabra correcta… intenta de nuevo😒";
+        error.style.color = "#b30000";
+      }
     }
-  }
-</script>
-
+  </script>
 </head>
 
 <body data-home-page="Inicio.html"
@@ -105,7 +104,7 @@
                  maxlength="8">
         </div>
 
-        <!-- BOTÓN FUNCIONAL (SIN ROMPER ANIMACIONES) -->
+        <!-- BOTÓN FUNCIONAL -->
         <div class="u-form-group u-form-submit">
           <a href="#"
              class="u-black u-border-none u-btn u-btn-submit u-button-style u-btn-1"
@@ -131,6 +130,7 @@
     </p>
 
   </div>
+</section>
 
 </body>
 </html>
