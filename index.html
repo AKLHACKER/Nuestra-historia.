@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html style="font-size: 16px;" lang="es">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <meta name="keywords" content="Bienvenida​">
+  <meta name="description" content="">
+  <title>Inicio</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="nicepage.css" media="screen">
+  <link rel="stylesheet" href="index.css" media="screen">
+
+  <!-- JS (ORDEN CORRECTO PARA ANIMACIONES) -->
+  <script src="jquery.js"></script>
+  <script src="nicepage.js" defer></script>
+
+  <!-- VALIDACIÓN -->
+<script>
+  function verificarClave() {
+    var palabraCorrecta = "aventura";
+    var ingreso = document.getElementById("name-ef64").value
+      .trim()
+      .toLowerCase();
+
+    var error = document.getElementById("error");
+
+    if (ingreso === palabraCorrecta) {
+      window.location.href = "mensaje.html";
+    } else {
+      error.innerHTML = "Esa no es la palabra correcta… intenta de nuevo😒";
+      error.style.color = "#b30000";
+    }
+  }
+</script>
+
+</head>
+
+<body data-home-page="Inicio.html"
+      data-home-page-title="Inicio"
+      data-path-to-root="./"
+      data-include-products="false"
+      class="u-body u-clearfix u-xl-mode"
+      data-lang="es">
+
+<header class="u-black u-clearfix u-header u-header" id="header">
+  <p class="u-custom-font u-font-lobster u-text u-text-1"
+     data-animation-name="pulse"
+     data-animation-duration="1000"
+     data-animation-delay="0">
+    Nuestra historia
+  </p>
+
+  <a href="#" class="u-image u-logo u-image-1"
+     data-animation-name="customAnimationIn"
+     data-animation-duration="1000"
+     data-animation-delay="0">
+    <img src="images/ALOGOPNG.png" class="u-logo-image u-logo-image-1">
+  </a>
+</header>
+
+<section class="u-align-center u-clearfix u-image u-shading u-section-1"
+         id="sec-a458"
+         data-image-width="1980"
+         data-image-height="1320">
+
+  <div class="u-clearfix u-sheet u-valign-middle-lg u-valign-middle-md u-valign-middle-sm u-sheet-1">
+
+    <img src="images/ALOGOPNG-5.png"
+         alt=""
+         class="u-image u-image-contain u-image-default u-preserve-proportions u-image-1"
+         data-image-width="446"
+         data-image-height="446"
+         data-animation-name="flash"
+         data-animation-duration="1000"
+         data-animation-delay="0">
+
+    <h1 class="u-custom-font u-font-montserrat u-text u-text-grey-75 u-text-1"
+        data-animation-name="pulse"
+        data-animation-duration="1000"
+        data-animation-delay="0">
+      Bienvenida
+    </h1>
+
+    <h3 class="u-custom-font u-font-lato u-text u-text-2"
+        data-animation-name="rubberBand"
+        data-animation-duration="1000"
+        data-animation-delay="0">
+      Por favor ingrese la palabra formada con las letras dadas
+    </h3>
+
+    <div class="u-expanded-width-xs u-form u-form-1">
+
+      <form onsubmit="return false;"
+            class="u-clearfix u-form-horizontal u-form-spacing-15 u-inner-form"
+            style="padding: 15px;">
+
+        <div class="u-form-group u-form-name u-label-none">
+          <label class="u-label">Nombre</label>
+          <input type="text"
+                 id="name-ef64"
+                 class="u-input u-input-rectangle"
+                 required
+                 placeholder="Ingresa la palabra formada"
+                 maxlength="8">
+        </div>
+
+        <!-- BOTÓN FUNCIONAL (SIN ROMPER ANIMACIONES) -->
+        <div class="u-form-group u-form-submit">
+          <a href="#"
+             class="u-black u-border-none u-btn u-btn-submit u-button-style u-btn-1"
+             data-animation-name="customAnimationIn"
+             data-animation-duration="1000"
+             data-animation-delay="0"
+             onclick="verificarClave(); return false;">
+            Entrar
+          </a>
+        </div>
+
+      </form>
+
+      <p id="error"></p>
+
+    </div>
+
+    <p class="u-text u-text-3"
+       data-animation-name="customAnimationIn"
+       data-animation-duration="1000"
+       data-animation-delay="0">
+      Espero que te guste
+    </p>
+
+  </div>
+</section>
+
+<section class="u-backlink u-clearfix u-grey-80">
+  This <a href="https://nicepage.com/website-design">Website Design</a>
+  was created with Nicepage Builder
+</section>
+
+</body>
+</html>
