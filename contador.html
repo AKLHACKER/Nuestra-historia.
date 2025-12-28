@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Nuestra Historia</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: 'Montserrat', sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      color: #fff;
+      background: radial-gradient(circle at center, #0a0a0a, #000);
+    }
+
+    /* ===== FONDO CON MOVIMIENTO MÁS NOTORIO ===== */
+    body::before {
+      content: "";
+      position: absolute;
+      inset: -20%;
+      background:
+        radial-gradient(circle at 30% 40%, rgba(255, 0, 150, 0.18), transparent 40%),
+        radial-gradient(circle at 70% 60%, rgba(255, 0, 200, 0.15), transparent 45%),
+        linear-gradient(120deg, rgba(255,0,150,0.15), transparent 65%),
+        linear-gradient(-120deg, rgba(255,0,200,0.12), transparent 65%);
+      background-size: 180% 180%;
+      animation: bgMove 14s ease-in-out infinite;
+      z-index: 0;
+      filter: blur(2px);
+    }
+
+    @keyframes bgMove {
+      0%   { background-position: 0% 50%; }
+      25%  { background-position: 60% 40%; }
+      50%  { background-position: 100% 50%; }
+      75%  { background-position: 40% 60%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* ===== PARTÍCULAS ===== */
+    .particles span {
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      background: rgba(255, 0, 150, 0.75);
+      border-radius: 50%;
+      animation: float 10s linear infinite;
+    }
+
+    @keyframes float {
+      from {
+        transform: translateY(110vh) scale(0.4);
+        opacity: 0;
+      }
+      20% { opacity: 1; }
+      to {
+        transform: translateY(-10vh) scale(1);
+        opacity: 0;
+      }
+    }
+
+    .container {
+      text-align: center;
+      width: 90%;
+      max-width: 520px;
+      z-index: 1;
+    }
+
+    .title {
+      font-size: clamp(2rem, 6vw, 3rem);
+      letter-spacing: 4px;
+      margin-bottom: 35px;
+      text-transform: uppercase;
+      color: #ff4da6;
+      text-shadow:
+        0 0 20px rgba(255, 77, 166, 0.7),
+        0 0 40px rgba(255, 77, 166, 0.4);
+    }
+
+    #countdown {
+      font-size: clamp(2.8rem, 9vw, 4.2rem);
+      font-weight: bold;
+      letter-spacing: 4px;
+      margin-bottom: 45px;
+      position: relative;
+    }
+
+    .glitch {
+      animation: glitch 0.35s linear;
+    }
+
+    @keyframes glitch {
+      0% {
+        transform: translate(0);
+        text-shadow: 4px 0 #ff0080, -4px 0 #ff66cc;
+      }
+      25% {
+        transform: translate(-3px, 2px);
+        text-shadow: -5px 0 #ff4da6, 5px 0 #ff99cc;
+      }
+      50% {
+        transform: translate(3px, -2px);
+        text-shadow: 5px 0 #ff66cc, -5px 0 #ff0080;
+      }
+      75% {
+        transform: translate(-2px, 3px);
+        text-shadow: -4px 0 #ff99cc, 4px 0 #ff4da6;
+      }
+      100% {
+        transform: translate(0);
+        text-shadow: none;
+      }
+    }
+
+    #unlockBtn {
+      font-size: clamp(1.4rem, 6vw, 2.2rem);
+      padding: 20px 45px;
+      border-radius: 60px;
+      border: none;
+      cursor: not-allowed;
+      background: #222;
+      color: #777;
+      opacity: 0.6;
+      transition: all 0.4s ease;
+    }
+
+    #unlockBtn.active {
+      cursor: pointer;
+      opacity: 1;
+      color: #000;
+      background: linear-gradient(90deg, #ff4da6, #ff0080);
+      box-shadow:
+        0 0 30px rgba(255, 77, 166, 1),
+        0 0 60px rgba(255, 0, 128, 0.7);
+      animation: pulse 1.4s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.07); }
+      100% { transform: scale(1); }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="particles">
+    <span style="left:10%; animation-delay:0s"></span>
+    <span style="left:25%; animation-delay:2s"></span>
+    <span style="left:40%; animation-delay:4s"></span>
+    <span style="left:55%; animation-delay:1s"></span>
+    <span style="left:70%; animation-delay:3s"></span>
+    <span style="left:85%; animation-delay:5s"></span>
+  </div>
+
+  <div class="container">
+    <div class="title">NUESTRA HISTORIA</div>
+    <div id="countdown">Cargando…</div>
+    <button id="unlockBtn" disabled>🔒 BLOQUEADO</button>
+  </div>
+
+  <script>
+    const targetDate = new Date("2026-01-01T00:00:00").getTime();
+    const countdownEl = document.getElementById("countdown");
+    const button = document.getElementById("unlockBtn");
+
+    const timer = setInterval(() => {
+      const now = new Date().getTime();
+      const distance = targetDate - now;
+
+      if (distance <= 0) {
+        clearInterval(timer);
+        countdownEl.textContent = "¡FELIZ AÑO NUEVO!";
+        button.textContent = "DESBLOQUEAR";
+        button.classList.add("active");
+        button.disabled = false;
+
+        button.onclick = () => {
+          window.location.href = "index.html";
+        };
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((distance / (1000 * 60)) % 60);
+      const seconds = Math.floor((distance / 1000) % 60);
+
+      countdownEl.textContent =
+        `${days}d ${hours}h ${minutes}m ${seconds}s`;
+
+      countdownEl.classList.add("glitch");
+      setTimeout(() => countdownEl.classList.remove("glitch"), 250);
+
+    }, 1000);
+  </script>
+
+</body>
+</html>
