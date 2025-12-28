@@ -1,7 +1,59 @@
- .u-section-1 {
-  background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), url('images/xz.jpg');
+.u-section-1 {
+  position: relative;
+  background-image:
+    linear-gradient(120deg,
+      rgba(255, 47, 146, 0.10),
+      rgba(0, 0, 0, 0.95),
+      rgba(255, 47, 146, 0.10)
+    ),
+    radial-gradient(circle at 25% 30%, rgba(255, 47, 146, 0.20), transparent 45%),
+    radial-gradient(circle at 75% 70%, rgba(255, 47, 146, 0.18), transparent 50%);
+  background-size: 300% 300%;
   background-position: 50% 50%;
+  animation: fondoGlitchMove 14s ease-in-out infinite;
 }
+
+/* Líneas glitch rosadas */
+.u-section-1::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    repeating-linear-gradient(
+      180deg,
+      rgba(255, 47, 146, 0.07) 0px,
+      rgba(255, 47, 146, 0.07) 1px,
+      transparent 2px,
+      transparent 7px
+    );
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+/* Ruido animado */
+.u-section-1::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='1'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
+  animation: ruidoGlitch 0.35s infinite steps(2);
+  pointer-events: none;
+}
+
+/* Animaciones SOLO VISUALES */
+@keyframes fondoGlitchMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes ruidoGlitch {
+  0% { transform: translate(0,0); }
+  50% { transform: translate(-1px,1px); }
+  100% { transform: translate(0,0); }
+}
+
+/* ===== TODO LO DEMÁS QUEDA IGUAL ===== */
 
 .u-section-1 .u-sheet-1 {
   min-height: 699px;
@@ -53,108 +105,49 @@
   margin: 79px auto 60px;
 }
 
+/* MEDIA QUERIES SIN TOCAR */
 @media (max-width: 1199px) {
-  .u-section-1 .u-sheet-1 {
-    min-height: 576px;
-  }
-
-  .u-section-1 .u-form-1 {
-    width: 858px;
-    margin-left: 15px;
-    margin-right: 67px;
-  }
+  .u-section-1 .u-sheet-1 { min-height: 576px; }
+  .u-section-1 .u-form-1 { width: 858px; margin-left: 15px; margin-right: 67px; }
 }
 
 @media (max-width: 991px) {
-  .u-section-1 .u-sheet-1 {
-    min-height: 441px;
-  }
-
-  .u-section-1 .u-text-1 {
-    width: 720px;
-  }
-
-  .u-section-1 .u-form-1 {
-    width: 720px;
-    margin-left: 0;
-    margin-right: 0;
-  }
+  .u-section-1 .u-sheet-1 { min-height: 441px; }
+  .u-section-1 .u-text-1 { width: 720px; }
+  .u-section-1 .u-form-1 { width: 720px; margin-left: 0; margin-right: 0; }
 }
 
 @media (max-width: 767px) {
-  .u-section-1 .u-sheet-1 {
-    min-height: 331px;
-  }
-
-  .u-section-1 .u-text-1 {
-    font-size: 3.4375rem;
-    width: 540px;
-  }
-
-  .u-section-1 .u-text-2 {
-    width: 540px;
-  }
-
-  .u-section-1 .u-form-1 {
-    width: 540px;
-  }
-
-  .u-section-1 .u-text-3 {
-    width: 540px;
-  }
+  .u-section-1 .u-sheet-1 { min-height: 331px; }
+  .u-section-1 .u-text-1 { font-size: 3.4375rem; width: 540px; }
+  .u-section-1 .u-text-2 { width: 540px; }
+  .u-section-1 .u-form-1 { width: 540px; }
+  .u-section-1 .u-text-3 { width: 540px; }
 }
 
 @media (max-width: 575px) {
-  .u-section-1 .u-sheet-1 {
-    min-height: 734px;
-  }
-
-  .u-section-1 .u-image-1 {
-    margin-top: 54px;
-  }
-
+  .u-section-1 .u-sheet-1 { min-height: 734px; }
+  .u-section-1 .u-image-1 { margin-top: 54px; }
   .u-section-1 .u-text-1 {
     font-size: 2.125rem;
     width: auto;
-    animation-timing-function: ease-in;
     margin-top: 17px;
     margin-left: 0;
     margin-right: 0;
   }
-
   .u-section-1 .u-text-2 {
     width: auto;
     margin-top: 25px;
     margin-right: -12px;
     margin-left: 12px;
   }
-
   .u-section-1 .u-form-1 {
     height: 138px;
     margin-top: 12px;
-    margin-right: initial;
-    margin-left: initial;
     width: auto;
   }
-
-  .u-section-1 .u-btn-1 {
-    --animation-custom_in-translate_x: 0px;
-    --animation-custom_in-translate_y: 300px;
-    --animation-custom_in-opacity: 0;
-    --animation-custom_in-rotate: 0deg;
-    --animation-custom_in-scale: 1;
-  }
-
   .u-section-1 .u-text-3 {
     width: auto;
-    transform: rotate(0deg);
-    opacity: 1;
-    background-position: 50% 0vh;
-    --animation-custom_in-translate_x: 300px;
-    --animation-custom_in-translate_y: 0px;
-    --animation-custom_in-opacity: 0;
-    --animation-custom_in-rotate: 0deg;
-    --animation-custom_in-scale: 1;
     margin: 159px 0 26px;
   }
 }

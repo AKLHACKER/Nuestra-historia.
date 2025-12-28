@@ -3,19 +3,117 @@
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta charset="utf-8">
-  <meta name="keywords" content="Bienvenida​">
-  <meta name="description" content="">
   <title>Inicio</title>
 
-  <!-- CSS -->
+  <!-- CSS BASE -->
   <link rel="stylesheet" href="nicepage.css" media="screen">
   <link rel="stylesheet" href="index.css" media="screen">
 
-  <!-- JS (ORDEN CORRECTO PARA ANIMACIONES) -->
+  <!-- FUENTE FUTURISTA -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&display=swap" rel="stylesheet">
+
+  <!-- ESTILO FUTURISTA / GLITCH -->
+  <style>
+    body {
+      background: #000;
+      color: #ff4fd8;
+      font-family: 'Orbitron', sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* FONDO ANIMADO */
+    .u-section-1 {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .u-section-1::before,
+    .u-section-1::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 20% 30%, rgba(255,79,216,0.15), transparent 40%),
+        radial-gradient(circle at 80% 70%, rgba(255,79,216,0.12), transparent 40%),
+        repeating-linear-gradient(
+          0deg,
+          rgba(255,79,216,0.06),
+          rgba(255,79,216,0.06) 1px,
+          transparent 1px,
+          transparent 4px
+        );
+      animation: bgMove 8s infinite linear;
+      z-index: 0;
+    }
+
+    .u-section-1::after {
+      animation-duration: 4s;
+      mix-blend-mode: screen;
+      opacity: 0.6;
+    }
+
+    @keyframes bgMove {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-25px); }
+      100% { transform: translateY(0); }
+    }
+
+    .u-sheet-1 {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* TEXTOS */
+    .u-text-1, .u-text-2, .u-text-3 {
+      text-shadow: 0 0 12px rgba(255,79,216,0.85);
+      letter-spacing: 1px;
+    }
+
+    /* INPUT MÁS GRANDE Y FUTURISTA */
+    .u-input {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.6rem;
+      background: rgba(0,0,0,0.75);
+      color: #ff4fd8;
+      border: 2px solid #ff4fd8;
+      box-shadow: 0 0 15px rgba(255,79,216,0.6);
+      text-align: center;
+      padding: 14px;
+      letter-spacing: 2px;
+    }
+
+    .u-input::placeholder {
+      color: rgba(255,79,216,0.6);
+    }
+
+    /* BOTÓN */
+    .u-btn-1 {
+      font-family: 'Orbitron', sans-serif;
+      background: #000;
+      color: #ff4fd8;
+      border: 2px solid #ff4fd8;
+      box-shadow: 0 0 18px rgba(255,79,216,0.8);
+      transition: all 0.3s ease;
+    }
+
+    .u-btn-1:hover {
+      background: #ff4fd8;
+      color: #000;
+      box-shadow: 0 0 35px #ff4fd8;
+    }
+
+    /* ERROR */
+    #error {
+      margin-top: 12px;
+      font-weight: 600;
+      text-shadow: 0 0 8px #ff4fd8;
+    }
+  </style>
+
+  <!-- JS -->
   <script src="jquery.js"></script>
   <script src="nicepage.js" defer></script>
 
-  <!-- VALIDACIÓN -->
   <script>
     function verificarClave() {
       var palabraCorrecta = "aventura";
@@ -26,106 +124,49 @@
       var error = document.getElementById("error");
 
       if (ingreso === palabraCorrecta) {
-        window.location.href = "Mensaje.html";
+        window.location.href = "mensaje.html";
       } else {
-        error.innerHTML = "Esa no es la palabra correcta… intenta de nuevo😒";
-        error.style.color = "#b30000";
+        error.innerHTML = "Esa no es la palabra correcta… intenta de nuevo";
+        error.style.color = "#ff4fd8";
       }
     }
   </script>
 </head>
 
-<body data-home-page="Inicio.html"
-      data-home-page-title="Inicio"
-      data-path-to-root="./"
-      data-include-products="false"
-      class="u-body u-clearfix u-xl-mode"
-      data-lang="es">
+<body class="u-body u-clearfix u-xl-mode" data-lang="es">
 
-<header class="u-black u-clearfix u-header u-header" id="header">
-  <p class="u-custom-font u-font-lobster u-text u-text-1"
-     data-animation-name="pulse"
-     data-animation-duration="1000"
-     data-animation-delay="0">
+<header class="u-black u-clearfix u-header u-header">
+  <p class="u-custom-font u-text u-text-1">
     Nuestra historia
   </p>
 
-  <a href="#" class="u-image u-logo u-image-1"
-     data-animation-name="customAnimationIn"
-     data-animation-duration="1000"
-     data-animation-delay="0">
+  <a href="#" class="u-image u-logo u-image-1">
     <img src="images/ALOGOPNG.png" class="u-logo-image u-logo-image-1">
   </a>
 </header>
 
-<section class="u-align-center u-clearfix u-image u-shading u-section-1"
-         id="sec-a458"
-         data-image-width="1980"
-         data-image-height="1320">
+<section class="u-align-center u-clearfix u-image u-shading u-section-1">
+  <div class="u-clearfix u-sheet u-sheet-1">
 
-  <div class="u-clearfix u-sheet u-valign-middle-lg u-valign-middle-md u-valign-middle-sm u-sheet-1">
+    <img src="images/ALOGOPNG-5.png" class="u-image u-image-1">
 
-    <img src="images/ALOGOPNG-5.png"
-         alt=""
-         class="u-image u-image-contain u-image-default u-preserve-proportions u-image-1"
-         data-image-width="446"
-         data-image-height="446"
-         data-animation-name="flash"
-         data-animation-duration="1000"
-         data-animation-delay="0">
+    <h1 class="u-text u-text-1">Bienvenida</h1>
 
-    <h1 class="u-custom-font u-font-montserrat u-text u-text-grey-75 u-text-1"
-        data-animation-name="pulse"
-        data-animation-duration="1000"
-        data-animation-delay="0">
-      Bienvenida
-    </h1>
-
-    <h3 class="u-custom-font u-font-lato u-text u-text-2"
-        data-animation-name="rubberBand"
-        data-animation-duration="1000"
-        data-animation-delay="0">
+    <h3 class="u-text u-text-2">
       Por favor ingrese la palabra formada con las letras dadas
     </h3>
 
-    <div class="u-expanded-width-xs u-form u-form-1">
-
-      <form onsubmit="return false;"
-            class="u-clearfix u-form-horizontal u-form-spacing-15 u-inner-form"
-            style="padding: 15px;">
-
-        <div class="u-form-group u-form-name u-label-none">
-          <label class="u-label">Nombre</label>
-          <input type="text"
-                 id="name-ef64"
-                 class="u-input u-input-rectangle"
-                 required
-                 placeholder="Ingresa la palabra formada"
-                 maxlength="8">
-        </div>
-
-        <!-- BOTÓN FUNCIONAL -->
-        <div class="u-form-group u-form-submit">
-          <a href="#"
-             class="u-black u-border-none u-btn u-btn-submit u-button-style u-btn-1"
-             data-animation-name="customAnimationIn"
-             data-animation-duration="1000"
-             data-animation-delay="0"
-             onclick="verificarClave(); return false;">
-            Entrar
-          </a>
-        </div>
-
+    <div class="u-form u-form-1">
+      <form onsubmit="return false;">
+        <input type="text" id="name-ef64" class="u-input" maxlength="8" placeholder="INGRESA LA PALABRA">
+        <a href="#" class="u-btn u-btn-1" onclick="verificarClave(); return false;">
+          Entrar
+        </a>
       </form>
-
       <p id="error"></p>
-
     </div>
 
-    <p class="u-text u-text-3"
-       data-animation-name="customAnimationIn"
-       data-animation-duration="1000"
-       data-animation-delay="0">
+    <p class="u-text u-text-3">
       Espero que te guste
     </p>
 

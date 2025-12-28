@@ -1,62 +1,94 @@
-.u-section-1 .u-sheet-1 {
-  min-height: 400px;
+/* ==============================
+   ESTILO FUTURISTA – CARTA
+   ============================== */
+
+/* FONDO ANIMADO ROSADO FUTURISTA */
+.u-section-1 {
+  background: linear-gradient(
+    120deg,
+    #0a0a0a,
+    #1a0a14,
+    #2a0f1e,
+    #1a0a14,
+    #0a0a0a
+  );
+  background-size: 400% 400%;
+  animation: fondoFuturista 18s ease-in-out infinite;
 }
 
-.u-section-1 .u-text-1 {
-  font-weight: 400;
-  margin: 16px -20px 0 auto;
+@keyframes fondoFuturista {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
+/* ==============================
+   TEXTO BLANCO GLOBAL
+   ============================== */
+
+.u-section-1,
+.u-section-1 p,
+.u-section-1 span,
+.u-section-1 strong,
+.u-section-1 em,
+.u-section-1 .u-text-1,
+.u-section-1 .u-text-2,
+.u-section-1 .u-text-3 {
+  color: #ffffff !important;
+}
+
+/* ==============================
+   TITULOS – FUTURISTA SUAVE
+   ============================== */
+
+/* Fecha y lugar */
+.u-section-1 .u-text-1,
 .u-section-1 .u-text-2 {
-  font-weight: 400;
-  margin: 0 -20px 0 auto;
+  letter-spacing: 2px;
+  text-shadow:
+    0 0 6px rgba(255, 120, 190, 0.6),
+    0 0 12px rgba(255, 120, 190, 0.3);
 }
+
+/* ==============================
+   EFECTO GLITCH MUY SUTIL
+   SOLO EN TITULOS
+   ============================== */
+
+.u-section-1 .u-text-1,
+.u-section-1 .u-text-2 {
+  position: relative;
+}
+
+.u-section-1 .u-text-1::after,
+.u-section-1 .u-text-2::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 1px;
+  top: 0;
+  color: rgba(255, 105, 180, 0.6);
+  z-index: -1;
+  animation: glitchLight 3s infinite;
+}
+
+@keyframes glitchLight {
+  0% { opacity: 0; }
+  10% { opacity: 0.3; }
+  20% { opacity: 0; }
+  100% { opacity: 0; }
+}
+
+/* ==============================
+   CUERPO DE LA CARTA
+   ============================== */
 
 .u-section-1 .u-text-3 {
-  margin: 55px 16px -717px -16px;
+  line-height: 1.9;
+  text-shadow: 0 0 4px rgba(255, 255, 255, 0.15);
 }
 
-@media (max-width: 1199px) {
-  .u-section-1 .u-text-2 {
-    margin-top: 20px;
-  }
-
-  .u-section-1 .u-text-3 {
-    margin-right: 0;
-    margin-left: 0;
-  }
-}
-
-@media (max-width: 575px) {
-  .u-section-1 .u-sheet-1 {
-    min-height: 1457px;
-  }
-
-  .u-section-1 .u-text-1 {
-    --animation-custom_in-translate_x: 300px;
-    --animation-custom_in-translate_y: 0px;
-    --animation-custom_in-opacity: 0;
-    --animation-custom_in-rotate: 0deg;
-    --animation-custom_in-scale: 1;
-  }
-
-  .u-section-1 .u-text-2 {
-    --animation-custom_in-translate_x: 300px;
-    --animation-custom_in-translate_y: 0px;
-    --animation-custom_in-opacity: 0;
-    --animation-custom_in-rotate: 0deg;
-    --animation-custom_in-scale: 1;
-    width: auto;
-    margin-top: 0;
-  }
-
-  .u-section-1 .u-text-3 {
-    width: auto;
-    margin-top: 40px;
-    margin-bottom: -683px;
-  }
-}.u-section-2 .u-sheet-1 {
-  min-height: 400px;
-}.u-section-3 .u-sheet-1 {
-  min-height: 400px;
+/* Firma */
+.u-section-1 .u-text-3 strong {
+  color: #ffd6ea !important;
+  text-shadow: 0 0 6px rgba(255, 140, 200, 0.6);
 }
