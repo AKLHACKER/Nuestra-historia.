@@ -155,9 +155,51 @@
   will-change: transform, opacity;
 }
 
-.u-section-1 {
-  transform: translateZ(0);
+@media (max-width: 768px) {
+  .u-section-1 {
+    animation-duration: 28s; /* más suave */
+  }
+
+  .u-section-1 .u-sheet-1 {
+    backdrop-filter: blur(4px);
+  }
 }
+
+/* ===============================
+   OPTIMIZACIÓN PARA TELÉFONOS
+   =============================== */
+
+/* Reduce carga gráfica innecesaria */
+@media (max-width: 768px) {
+
+  /* Evita repaints pesados */
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Mejora fluidez de animaciones */
+  .u-section-1,
+  .u-section-2,
+  .u-section-3 {
+    will-change: transform, opacity;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+  }
+
+  /* Reduce sombras pesadas */
+  .u-text,
+  .u-image {
+    text-shadow: none !important;
+    box-shadow: none !important;
+  }
+}
+
 
   </style>
 </head>
@@ -217,4 +259,3 @@
 
 </body>
 </html>
-

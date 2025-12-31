@@ -108,6 +108,42 @@
       font-weight: 600;
       text-shadow: 0 0 8px #ff4fd8;
     }
+
+    /* ===============================
+   OPTIMIZACIÓN PARA TELÉFONOS
+   =============================== */
+
+/* Reduce carga gráfica innecesaria */
+@media (max-width: 768px) {
+
+  /* Evita repaints pesados */
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Mejora fluidez de animaciones */
+  .u-section-1,
+  .u-section-2,
+  .u-section-3 {
+    will-change: transform, opacity;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+  }
+
+  /* Reduce sombras pesadas */
+  .u-text,
+  .u-image {
+    text-shadow: none !important;
+    box-shadow: none !important;
+  }
+}
+
   </style>
 
   <!-- JS -->
@@ -124,7 +160,7 @@
       var error = document.getElementById("error");
 
       if (ingreso === palabraCorrecta) {
-        window.location.href = "Mensaje.html";
+        window.location.href = "pagina_sobre.html";
       } else {
         error.innerHTML = "Esa no es la palabra correcta… intenta de nuevo";
         error.style.color = "#ff4fd8";
